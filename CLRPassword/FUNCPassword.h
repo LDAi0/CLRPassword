@@ -1,11 +1,11 @@
 #pragma once
+#include <iostream>
+#include <string>
 
 using namespace System;
-using namespace System::ComponentModel;
-using namespace System::Collections;
 using namespace System::Windows::Forms;
-using namespace System::Data;
-using namespace System::Drawing;
+
+
 
 String^ GeneratePassword(String^ word1, String^ word2, String^ word3) {
     String^ alphabet = "abcdefghijklmnopqrstuvwxyz";
@@ -42,12 +42,13 @@ String^ GeneratePassword(String^ word1, String^ word2, String^ word3) {
 }
 
 /*String^ HashPassword(String^ password) {
-	array<Byte>^ data = Encoding::UTF8->GetBytes(password);
-	array<Byte>^ hashedData;
+    array<Byte>^ passwordBytes = System::Text::Encoding::UTF8->GetBytes(password);
 
-	using (SHA256^ sha256 = SHA256::Create()) {
-		hashedData = sha256->ComputeHash(data);
-	}
+    SHA256^ sha256 = SHA256::Create();
 
-	return BitConverter::ToString(hashedData);
+    array<Byte>^ hashBytes = sha256->ComputeHash(passwordBytes);
+
+    String^ hashString = BitConverter::ToString(hashBytes)->Replace("-", String::Empty);
+
+    return hashString;
 }*/
