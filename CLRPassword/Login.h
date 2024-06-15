@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "DataBase.h"
 #include "FUNCPassword.h"
+#include "FileScan.h"
 namespace CLRPassword {
 
 	using namespace System;
@@ -173,6 +174,8 @@ namespace CLRPassword {
 		DataBase^ db = gcnew DataBase();
 		if (db->LoginUser(loginTextBox->Text, funcp->HashPassword(passwordTextBox->Text))) {
 			this->Hide();
+			FileScan^ fc = gcnew FileScan();
+			fc->Show();
 		}
 		else {
 			MessageBox::Show("Пожалуйста, введите логин и пароль.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
